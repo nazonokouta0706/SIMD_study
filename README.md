@@ -5,8 +5,6 @@
 
 [![MS Build and Test](https://github.com/nazonokouta0706/SIMD_study/actions/workflows/MsBuildAndTest.yml/badge.svg)](https://github.com/nazonokouta0706/SIMD_study/actions/workflows/MsBuildAndTest.yml)
 
-（このファイルの上の行の[tpu-game-2021]の部分(2か所)を自分のアカウント名に修正してください）
-
 # 進め方
 * 本プロジェクトをforkして、取り組んでください。
 * README.mdの上の箇所を書き換えて、ビルドの状態のバッチを自分のアカウントに変更してください
@@ -15,6 +13,9 @@
   * テストコードは「src/UnitTest/UnitTest.cpp」です
 * テストは一つづつ通しましょう。テストが通ったらcommitを忘れずにしましょう。
 * すべてのテストが通ったら、本リポジトリにプルリクエストをしてください。
+
+# 分からなかったところ
+* 行列の部分の乗算が上手くいきませんでした。どういったソースコード書けば良かったのでしょうか？
 
 # 参考になりそうなサイト
 * [SIMDの組み込み関数のことはじめ (koturnの日記)](https://koturn.hatenablog.com/entry/2016/07/18/090000)
