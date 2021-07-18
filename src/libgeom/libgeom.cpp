@@ -9,6 +9,16 @@ void copy_vector4_array(float* dst, const float* src, int num)
 {
 #if 1
 	// ToDo: SIMD計算を使って実装して下さい
+
+	for (int i = 0; i < num * 4; i += 4)
+	{
+		//4つのfloatをロードするのに_mm_load_psを使用。
+		__m128 ps = _mm_load_ps(src + i);
+		//4つのfloatをストアするのに_mm_store_psを使用。
+		_mm_store_ps(dst + i, ps);
+	}
+
+
 #else
 	float* pd = dst;
 	const float* ps = src;
@@ -30,6 +40,26 @@ void add_vector4_array(float* dst, const float* src0, const float* src1, int num
 {
 #if 1
 	// ToDo: SIMD計算を使って実装して下さい
+
+	for (int i = 0; i < num * 4; i += 4)
+	{
+		//4つのfloatをロードするのに_mm_load_psを使用。
+		__m128 ps0 = _mm_load_ps(src0 + i);
+		__m128 ps1 = _mm_load_ps(src1 + i);
+
+		//addでsrc0にsrc1を加算してps2
+		__m128 ps2 = _mm_add_ps(ps0,ps1);
+
+		//4つのfloatをストアするのに_mm_store_psを使用。
+		_mm_store_ps(dst + i, ps2);
+
+	}
+
+
+
+
+
+
 #else
 	float* pd = dst;
 	const float* ps0 = src0;
@@ -53,6 +83,24 @@ void apply_matrix_vector4_array(float* dst, const float* src, const float* matri
 {
 #if 1
 	// ToDo: SIMD計算を使って実装して下さい
+
+	for (int i = 0; i < num * 4; i += 4)
+	{
+		//4つのfloatをロードするのに_mm_load_psを使用。
+		__m128 ps0 = _mm_load_ps(src + i);
+		__m128 ps1 = _mm_load_ps(matrix + i);
+
+		//mulでsrcとmatrixを乗算してps2
+		__m128 ps2 = _mm_mul_ps(ps0, ps1);
+
+		//4つのfloatをストアするのに_mm_store_psを使用。
+		_mm_store_ps(dst + i, ps2);
+
+	}
+
+
+
+
 #else
 	float* pd = dst;
 	const float* ps = src;
